@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>TODO App</title>
+    </head>
+    <body>
+        <form action="/addMessage" method="POST" class="todo-header">
+        <input type='text' id="message" name="message" placeholder="write here"/>
+        <button  type='submit'>add message</button>
+    </form>
+<br>
+<br>
+        <ul class="todo-list">
+            <% todoTasks.forEach(details => { %>
+            <li class="todo-list-item">
+            <div class="todo-list-item-name"><%= details.message %></div>
+            <a href="/edit/<%= details._id %>" class="edit">
+            <span class="fas fa-edit"></span>
+            </a>
+            <a href="/remove/<%= details._id %>" class="remove">
+            <span class="fas fa-times"></span>
+            </a>
+            </li>
+            <% }) %>
+            </ul>
+    </body>
+</html>
